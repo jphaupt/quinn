@@ -2,7 +2,10 @@ program simpson
     !! exercise 4.12
     !! this program uses Simpson's rule to compute pi then prints it out
     ! [x] a. parallelise with f(x)=4/(1+x^2), a=0, b=1, n=50
-    ! [ ] b. benchmark on various numbers of processors
+    ! [x] b. benchmark on various numbers of processors
+    ! note this still uses very ugly preprocessors which would be better put in
+    ! another file, like my_mpi.F90 and then simply used here
+    ! seems this scales very badly for some reason
     use iso_fortran_env, only: rp => real64
 #ifdef ENABLE_MPI
     use mpi_f08
@@ -24,9 +27,6 @@ program simpson
     nproc = 1
     call cpu_time(time)
 #endif
-    print*, "nproc=", nproc
-    print*, "my_rank=", my_rank
-
     area_loc = 0
     do i=my_rank+1,n/2,nproc
         area_loc = area_loc + 4._rp*f(2*i-1) + 2*f(2*i)
@@ -42,7 +42,7 @@ program simpson
     if(my_rank==0) then
         area = area + f(0) - f(n)
         area = area/(3._rp*n)
-        print*, "pi~", area
+        ! print*, "pi~", area
         print '(1x,i0,4x,g0)', nproc, time
     endif
 
