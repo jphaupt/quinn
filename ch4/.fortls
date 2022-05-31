@@ -1,0 +1,7 @@
+{
+   "ext_source_dirs": [
+    "/home/phaupt/software/openmpi_src/openmpi-4.1.3/ompi/mpi/fortran/use-mpi-f08",
+    "/home/phaupt/software/openmpi_src/openmpi-4.1.3/ompi/mpi/fortran/use-mpi-tkr",
+    "/home/phaupt/software/openmpi_src/openmpi-4.1.3/ompi/mpi/fortran/base"
+    ]
+}

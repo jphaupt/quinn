@@ -1,0 +1,8 @@
+{
+
+    "fortran.linter.extraArgs": [
+        // CMake define
+        "-DENABLE_MPI"
+    ]
+    // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}
