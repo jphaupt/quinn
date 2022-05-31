@@ -13,7 +13,7 @@ program simpson
     implicit none
     real(rp) :: area, area_loc
     integer :: i
-    integer, parameter :: n=50
+    integer, parameter :: n=5000 ! only get speed up if this is huge
     integer :: ierr, my_rank, nproc
     real(rp) :: time
 #ifdef ENABLE_MPI
