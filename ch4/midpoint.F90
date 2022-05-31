@@ -25,7 +25,6 @@ program midpoint
     call MPI_Comm_rank_f08(MPI_COMM_WORLD, my_rank, ierr)
     call MPI_Comm_size_f08(MPI_COMM_WORLD, nproc, ierr)
 #else
-    testvar = 1
     time = 0
     my_rank = 0
     nproc = 1

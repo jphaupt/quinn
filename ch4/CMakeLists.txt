@@ -5,6 +5,7 @@ enable_language(Fortran)
 
 # midpoint is a minimal example of a CMake Fortran MPI program
 add_executable(midpoint midpoint.F90)
+add_executable(simpson simpson.F90)
 
 option(PARALLEL "Using MPI" ON)
 if(PARALLEL)
@@ -12,6 +13,7 @@ if(PARALLEL)
     find_package(MPI REQUIRED COMPONENTS Fortran)
     target_compile_definitions(midpoint PUBLIC ENABLE_MPI)
     target_link_libraries(midpoint MPI::MPI_Fortran)
+    target_compile_definitions(simpson PUBLIC ENABLE_MPI)
+    target_link_libraries(simpson MPI::MPI_Fortran)
 endif()
 
-add_executable(simpson simpson.f90)
